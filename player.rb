@@ -3,9 +3,9 @@ class Player
 attr_accessor :name
 
   def initialize(name)
-    @name = name
+    @name = name.capitalize
   end
-  
+
   def get_move
     puts "It's your move #{name}, give me a letter"
     gets.chomp.downcase.strip
@@ -13,13 +13,13 @@ attr_accessor :name
 
   def challenge?(fragment)
     puts "hay #{name} , the current fragment is :  #{fragment}"
-    puts 'do you want to challenge the move enter y/n'
+    puts 'do you want to challenge the move enter \'y\' to challenge'
     return true if gets.chomp.upcase === "Y"
     false
   end
 
   def complete_fragment(fragment)
-    puts "You have been challenged, please complete the fragment given #{fragment}"
+    puts "#{name}, You have been challenged, please complete the fragment given #{fragment}"
     completed_word = gets.chomp.downcase.strip
     if completed_word[0...fragment.length] == fragment
       return completed_word

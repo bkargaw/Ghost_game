@@ -50,15 +50,18 @@ class Ghost
     completed_word =current_player.complete_fragment(fragment)
     if dictionary.include?(completed_word)
       @scores[challenging_player] +=1
-        puts "#{current_player.name} won the challenge"
-        puts "#{challenging_player.name} has #{format_score(scores[challenging_player])}"
+      declare_round_outcome(current_player,challenging_player)
     else
       @scores[current_player] += 1
-        puts "#{challenging_player.name} won the challenge"
-        puts "#{current_player.name} has #{format_score(scores[current_player])}"
+      declare_round_outcome(challenging_player,current_player)
     end
 
     @fragment = ""
+  end
+
+  def declare_round_outcome(winner, loser)
+    puts "#{winner.name} won the challenge"
+    puts "#{loser.name} has #{format_score(scores[loser])}"
   end
 
   def format_score(score)
