@@ -1,6 +1,6 @@
 require_relative 'player.rb'
 require 'set'
-require  'byebug'
+# require  'byebug'
 
 class Ghost
   attr_accessor :dictionary , :fragment, :players, :current_player, :scores , :previous_player
